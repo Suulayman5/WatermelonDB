@@ -16,6 +16,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@nozbe/watermelondb": "^0.28.0",
     "@react-navigation/native": "^7.1.14",
     "@react-navigation/native-stack": "^7.3.21",
     "expo": "^54.0.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@babel/plugin-proposal-decorators": "^7.29.7",
     "@types/react": "~19.1.10",
     "eslint": "^9.25.1",
     "eslint-config-expo": "~10.0.0",

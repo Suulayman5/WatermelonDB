@@ -19,12 +19,18 @@ type ScreenEntry = {
   module: ScreenModuleLike;
 };
 
-import * as ScreenModule1 from '../screens/DummyScreen';
-import * as ScreenModule2 from '../screens/HomeScreen';
+function humanizeRouteName(name: string) {
+  return name
+    .split('/')
+    .pop()
+    ?.replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase()) ?? name;
+}
+
+import * as ScreenModule1 from '../screens/HomeScreen';
 
 const screenEntries: ScreenEntry[] = [
-  { name: "DummyScreen", module: ScreenModule1 },
-  { name: "HomeScreen", module: ScreenModule2 },
+  { name: "HomeScreen", module: ScreenModule1 },
 ];
 
 const resolvedScreens = screenEntries
@@ -34,11 +40,14 @@ const resolvedScreens = screenEntries
     }
 
     const routeName = module.routeName ?? name;
+    const options = module.options ?? {
+      title: module.title ?? humanizeRouteName(routeName),
+    };
 
     return {
       name: routeName,
       component: module.default,
-      // options,
+      options,
     };
   })
   .filter((screen): screen is RegisteredScreen => screen !== null);
