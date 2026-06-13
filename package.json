@@ -2,22 +2,31 @@
   "name": "my-expo-app",
   "version": "1.0.0",
   "scripts": {
+    "prestart": "yarn generate:screens",
     "android": "expo start --android",
+    "preandroid": "yarn generate:screens",
     "ios": "expo start --ios",
+    "preios": "yarn generate:screens",
     "start": "expo start",
+    "preweb": "yarn generate:screens",
+    "generate:screens": "node scripts/generate-screen-registry.mjs",
     "prebuild": "expo prebuild",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/native": "^7.1.14",
+    "@react-navigation/native-stack": "^7.3.21",
     "expo": "^54.0.0",
     "expo-status-bar": "~3.0.8",
     "nativewind": "latest",
     "react": "19.1.0",
     "react-native": "0.81.5",
+    "react-native-gesture-handler": "~2.28.0",
     "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.15.0",
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {

@@ -15,7 +15,7 @@ web-build/
 
 ios
 android
-
+.yarn
 # macOS
 .DS_Store
 
